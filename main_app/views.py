@@ -4,5 +4,5 @@ from django.http import HttpResponse
 def home(request):
     return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
 
-def index(request):
-    return render(request, 'index.html')
+def jobs_index(request):
+    return render(request, 'jobs/index.html')
