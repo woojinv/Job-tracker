@@ -7,4 +7,5 @@ def home(request):
 def jobs_index(request):
     return render(request, 'jobs/index.html')
 
-print('hello')
+
+print('wassup')
