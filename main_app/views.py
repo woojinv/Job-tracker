@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from .models import Job
@@ -15,3 +16,7 @@ class JobList(ListView):
 
 class JobDetail(DetailView):
     model = Job
+
+class JobCreate(CreateView):
+    model = Job
+    fields = '__all__'

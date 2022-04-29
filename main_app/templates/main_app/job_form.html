@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if object %}
+    <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
+{% else %}
+    <h1>Add Job</h1>
+{% endif %}
+    
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add Job" class="btn">
+</form>
+    
+{% endblock content %}
+    
