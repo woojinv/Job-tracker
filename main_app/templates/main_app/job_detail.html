@@ -7,24 +7,35 @@
 
 
 <div class="card">
-    <div class="card-content">
-        <span class="card-title">{{ job.company }}</span>
-        <p>Title: {{ job.title }}</p>
-        <p>Salary: {{ job.salary }}</p>
-        <p>Location: {{ job.location }}</p>
-
-        <p>Date Applied: {{ job.date_applied }}</p>
-        <p>Status: {{ job.status }}</p>
-
-        <p>Technical Requirements: {{ job.tech_reqs }}</p>
-        <p>Description: {{ job.description }}</p>
-
-        <p>Source: {{ job.source }}<p>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <h4 class="card-title">{{ job.company }}</h4>
+                <p>Title: {{ job.title }}</p>
+                <p>Salary: {{ job.salary }}</p>
+                <p>Location: {{ job.location }}</p>
+            </div>
+            <div class="col-6">
+                <p>Date Applied: {{ job.date_applied }}</p>
+                <p>Status: {{ job.status }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <p>Technical Requirements: {{ job.tech_reqs }}</p>
+        </div>
+        <div class="row">
+            <p>Description: {{ job.description }}</p>
+        </div>
+        <div class="row">
+            <p>Source: {{ job.source }}<p>
+        </div>
+        <div class="row">
+            <div>
+                <a href="{% url 'jobs_update' job.id %}">Edit</a>
+                <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+            </div>  
+        </div>
     </div>   
-    <div>
-        <a href="{% url 'jobs_update' job.id %}">Edit</a>
-        <a href="{% url 'jobs_delete' job.id %}">Delete</a>
-    </div>         
 </div>
 
     

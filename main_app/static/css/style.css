@@ -1,8 +1,4 @@
-body {
-  background-color: red;
-}
-
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -21,11 +17,10 @@ nav {
 }
 
 body {
-    background-color: red;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    
+    background-color: var(--clr-light);
 }
   
 main {
@@ -35,4 +30,4 @@ main {
 footer.page-footer {
     padding-top: 0;
     text-align: right;
-} */
+}
