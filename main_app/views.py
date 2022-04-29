@@ -5,17 +5,30 @@ from django.http import HttpResponse
 from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 def home(request):
     return render(request, 'home.html')
 
-class JobList(ListView):
+class JobList(LoginRequiredMixin, ListView):
     model = Job
 
-class JobDetail(DetailView):
-    model = Job
+    def get_queryset(self):
+        return Job.objects.filter(user=self.request.user)
 
-class JobCreate(CreateView):
+class JobDetail(PermissionRequiredMixin, DetailView):
+    model = Job
+    # permission_required = 'jobs.title'
+    # raise_exception = False
+    
+
+    # def get_queryset(self):
+    #     if self.request.user.is_authenticated:
+    #         return Job.objects.filter(user=self.request.user)
+    #     else:
+    #         return Job.objects.none()
+
+class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
     fields = ['company', 'title', 'salary', 'location', 'date_applied', 'tech_reqs', 'status', 'source', 'description']
 
@@ -23,11 +36,11 @@ class JobCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class JobUpdate(UpdateView):
+class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
     fields = '__all__'
 
-class JobDelete(DeleteView):
+class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
     success_url = '/jobs/'
 
