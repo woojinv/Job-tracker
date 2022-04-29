@@ -7,15 +7,21 @@
 
 
 {% for job in job_list %}
-    <div class="card">
-        <a href="{% url 'jobs_detail' job.id %}">
-            <div class="card-content">
-                <span class="card-title">{{ job.company }}</span>
-                <p>Title: {{ job.title }}</p>
-                <p>Status: {{ job.status }}</p>
+    <a href="{% url 'jobs_detail' job.id %}">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="card-title">{{ job.company }}</h5>
+                        <p class="card-text">Title: {{ job.title }}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="card-text">Status: {{ job.status }}</p>
+                    </div>
+                </div>
             </div>            
-        </a>
-    </div>
+        </div>
+    </a>
 {% endfor %}
     
 

@@ -1,14 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+} 
+
+:root {
+  --clr-light: #CEE5F2;
+  --clr-lmid: #ACCBE1;
+  --clr-mid: #7C98B3;
+  --clr-dark: #637081;
+  --clr-alt: #536B78;  
+}
+
+nav {
+  background-color: var(--clr-dark);
+}
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+    background-color: var(--clr-light);
+}
   
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
   
-  footer.page-footer {
+footer.page-footer {
     padding-top: 0;
     text-align: right;
-  }
+}
