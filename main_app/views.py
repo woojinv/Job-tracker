@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 def home(request):
     return render(request, 'home.html')
@@ -16,8 +16,17 @@ class JobList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Job.objects.filter(user=self.request.user)
 
-class JobDetail(LoginRequiredMixin, DetailView):
+class JobDetail(PermissionRequiredMixin, DetailView):
     model = Job
+    # permission_required = 'jobs.title'
+    # raise_exception = False
+    
+
+    # def get_queryset(self):
+    #     if self.request.user.is_authenticated:
+    #         return Job.objects.filter(user=self.request.user)
+    #     else:
+    #         return Job.objects.none()
 
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
