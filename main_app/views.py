@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from django.http import HttpResponse
 from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -16,7 +15,7 @@ class JobList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Job.objects.filter(user=self.request.user)
 
-class JobDetail(PermissionRequiredMixin, DetailView):
+class JobDetail(DetailView):
     model = Job
     # permission_required = 'jobs.title'
     # raise_exception = False
