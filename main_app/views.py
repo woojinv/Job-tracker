@@ -17,6 +17,10 @@ class JobCreate(CreateView):
     model = Job
     fields = '__all__'
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 class JobUpdate(UpdateView):
     model = Job
     fields = '__all__'
