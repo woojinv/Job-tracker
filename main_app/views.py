@@ -5,17 +5,21 @@ from django.http import HttpResponse
 from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
     return render(request, 'home.html')
 
-class JobList(ListView):
+class JobList(LoginRequiredMixin, ListView):
     model = Job
 
-class JobDetail(DetailView):
+    def get_queryset(self):
+        return Job.objects.filter(user=self.request.user)
+
+class JobDetail(LoginRequiredMixin, DetailView):
     model = Job
 
-class JobCreate(CreateView):
+class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
     fields = ['company', 'title', 'salary', 'location', 'date_applied', 'tech_reqs', 'status', 'source', 'description']
 
@@ -23,11 +27,11 @@ class JobCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class JobUpdate(UpdateView):
+class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
     fields = '__all__'
 
-class JobDelete(DeleteView):
+class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
     success_url = '/jobs/'
 
