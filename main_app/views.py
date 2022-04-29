@@ -15,7 +15,7 @@ class JobDetail(DetailView):
 
 class JobCreate(CreateView):
     model = Job
-    fields = '__all__'
+    fields = ['company', 'title', 'salary', 'location', 'date_applied', 'tech_reqs', 'status', 'source', 'description']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
