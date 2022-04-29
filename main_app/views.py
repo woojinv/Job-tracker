@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from .models import Job
 
@@ -11,4 +11,7 @@ def home(request):
 #     return render(request, 'jobs/index.html', {'jobs': jobs})
 
 class JobList(ListView):
+    model = Job
+
+class JobDetail(DetailView):
     model = Job
