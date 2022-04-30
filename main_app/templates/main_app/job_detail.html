@@ -1,42 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Job Details</h1>
-<hr />
-<p>Details about {{ job.title }} at {{ job.company }}</p>
+
+{% if user.id == job.user_id %}
+    <h1>Job Details</h1>
+    <hr />
+    <p>Details about {{ job.title }} at {{ job.company }}</p>
 
 
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-6">
-                <h4 class="card-title">{{ job.company }}</h4>
-                <p>Title: {{ job.title }}</p>
-                <p>Salary: {{ job.salary }}</p>
-                <p>Location: {{ job.location }}</p>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="card-title">{{ job.company }}</h4>
+                    <p>Title: {{ job.title }}</p>
+                    <p>Salary: {{ job.salary }}</p>
+                    <p>Location: {{ job.location }}</p>
+                </div>
+                <div class="col-6">
+                    <p>Date Applied: {{ job.date_applied }}</p>
+                    <p>Status: {{ job.status }}</p>
+                </div>
             </div>
-            <div class="col-6">
-                <p>Date Applied: {{ job.date_applied }}</p>
-                <p>Status: {{ job.status }}</p>
+            <div class="row">
+                <p>Technical Requirements: {{ job.tech_reqs }}</p>
             </div>
-        </div>
-        <div class="row">
-            <p>Technical Requirements: {{ job.tech_reqs }}</p>
-        </div>
-        <div class="row">
-            <p>Description: {{ job.description }}</p>
-        </div>
-        <div class="row">
-            <p>Source: {{ job.source }}<p>
-        </div>
-        <div class="row">
-            <div>
-                <a href="{% url 'jobs_update' job.id %}">Edit</a>
-                <a href="{% url 'jobs_delete' job.id %}">Delete</a>
-            </div>  
-        </div>
-    </div>   
-</div>
+            <div class="row">
+                <p>Description: {{ job.description }}</p>
+            </div>
+            <div class="row">
+                <p>Source: {{ job.source }}<p>
+            </div>
+            <div class="row">
+                <div>
+                    <a href="{% url 'jobs_update' job.id %}">Edit</a>
+                    <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+                </div>  
+            </div>
+        </div>   
+    </div>
+
+{% else %}
+    <h1>You do not have access to this page 😡</h1>
+
+{% endif %}
+    
+
+
 
     
 
