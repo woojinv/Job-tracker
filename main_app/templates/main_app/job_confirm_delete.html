@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-<h1>Delete Job</h1> 
 
-<h4>Are you sure you want to delete {{ object.title }} at {{ object.company }}</h4>
+{% if user.id == job.user_id %}
+    <h1>Delete Job</h1> 
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Delete" class="btn">
-    <a href="{% url 'jobs_detail' job.id %}">Cancel</a>
-</form>
+    <h4>Are you sure you want to delete {{ object.title }} at {{ object.company }}</h4>
 
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn">
+        <a href="{% url 'jobs_detail' job.id %}">Cancel</a>
+    </form>
+    
+{% else %}
+<h1>You do not have access to this page 😡</h1>
 
+{% endif %}
 
 
 {% endblock %}
