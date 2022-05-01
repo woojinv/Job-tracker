@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if user.id == job.user_id %}
+{% if user %}
 
     {% if object %}
         <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
