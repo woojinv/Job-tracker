@@ -31,3 +31,25 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
 }
+
+.card {
+  background-color: var(--clr-lmid);
+  margin: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: var(--clr-dark);
+}
+
+h1 {
+  margin: 10px;
+}
+
+.navbar-brand, .nav-item {
+  margin: 0 10px
+}
