@@ -18,6 +18,7 @@ class JobList(LoginRequiredMixin, ListView):
 class JobDetail(DetailView):
     model = Job
 
+    
 
     # permission_required = 'jobs.title'
     # raise_exception = False

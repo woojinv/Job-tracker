@@ -13,6 +13,7 @@ class Job(models.Model):
     status = models.CharField(max_length=50)
     source = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
+    logo = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
