@@ -84,7 +84,7 @@ p {
 }
 
 .detail-right {
-  margin: auto;
+  /* margin: auto; */
   text-align: right;
 }
 
