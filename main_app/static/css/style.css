@@ -4,12 +4,23 @@
   box-sizing: border-box;
 } 
 
-:root {
+
+/* blues */
+/* :root {
   --clr-light: #CEE5F2;
   --clr-lmid: #ACCBE1;
   --clr-mid: #7C98B3;
   --clr-dark: #637081;
   --clr-alt: #536B78;  
+} */
+
+/* alt color scheme */
+:root {
+  --clr-light: #E2EAF3;
+  --clr-lmid: #CCAD8F;
+  --clr-mid: #255C99;
+  --clr-dark: #262626;
+  --clr-alt: #BB0A21;  
 }
 
 nav {
@@ -52,4 +63,10 @@ h1 {
 
 .navbar-brand, .nav-item {
   margin: 0 10px
+}
+
+.job-status {
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
 }
