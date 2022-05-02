@@ -7,13 +7,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+
 import clearbit
+
+
 
 def home(request):
 
     variable_name = 'twitch'
     clearbit.key = settings.API_KEY
-    print(clearbit.key)
+
     company = clearbit.Company.find(domain=f'{variable_name}.com',stream=True)
 
     return render(request, 'home.html', {
