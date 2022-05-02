@@ -21,20 +21,53 @@
     <form class="form-contact" action="" method="POST">
         {% csrf_token %} 
         {% for field in form %}
-        <fieldset class="form-group">
-          <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-            <div class="form-control">
-              <input type="text" class="form-control"
-                name="{{ field.name }}"
-                id="id_{{ field.name }}"
-                {% if field.value != None %}
-                    value="{{ field.value }}" 
-                {% else %}
-                    value=""
-                {% endif %}
-                > 
-               </div>
-        </fieldset>
+            {% if field.name == 'date_applied' %}
+                <fieldset class="form-group">
+                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="form-control">
+                        <input type="date" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            {% if field.value != None %}
+                                value="{{ field.value }}" 
+                            {% else %}
+                                value=""
+                            {% endif %}
+                            > 
+                    </div>
+                </fieldset>
+            {% elif field.name == 'description' %}
+                <fieldset class="form-group">
+                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="form-control">
+                        <input type="textarea" rows="3" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            {% if field.value != None %}
+                                value="{{ field.value }}" 
+                            {% else %}
+                                value=""
+                            {% endif %}
+                            > 
+                    </div>
+                </fieldset>
+            {% else %}
+                <fieldset class="form-group">
+                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="form-control">
+                        <input type="text" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            {% if field.value != None %}
+                                value="{{ field.value }}" 
+                            {% else %}
+                                value=""
+                            {% endif %}
+                            > 
+                    </div>
+                </fieldset>
+            {% endif %}
+        
         {% endfor %}
            <input type="submit" value="Submit"  class="btn btn-primary">
         </form>
