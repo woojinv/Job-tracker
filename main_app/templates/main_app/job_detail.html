@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<h2>{{ company }}</h2>
+<h3>{{ domain }}</h3>
+<h4>{{ description }}</h4>
+<h5>{{ industry }}</h5>
 
 {% if user.id == job.user_id %}
     <div class="row">
