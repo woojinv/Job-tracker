@@ -24,7 +24,7 @@
                             name="{{ field.name }}"
                             id="id_{{ field.name }}"
                             {% if field.value != None %}
-                                value="{{ field.value }}" 
+                                value="{{ field.value|date:'Y-m-d' }}" 
                             {% else %}
                                 value=""
                             {% endif %}
