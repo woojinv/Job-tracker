@@ -4,13 +4,23 @@ from django.views.generic import ListView, DetailView
 from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+# import requests
 import clearbit
 
-
-
 def home(request):
-    return render(request, 'home.html')
+
+    variable_name = 'twitch'
+    clearbit.key = 'sk_d07964faa899c455e891fd4c3a1bb102'
+    company = clearbit.Company.find(domain=f'{variable_name}.com',stream=True)
+
+    return render(request, 'home.html', {
+        'company': company['name'],
+        'domain': company['domain'],
+        'description': company['description'],
+        'industry': company['category']['industry']
+    })
+
 
 class JobList(LoginRequiredMixin, ListView):
     model = Job
@@ -18,19 +28,31 @@ class JobList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Job.objects.filter(user=self.request.user)
 
-class JobDetail(DetailView):
-    model = Job
 
+def jobs_detail(request, job_id):
+    job = Job.objects.get(id=job_id)
+    clearbit.key = 'sk_d07964faa899c455e891fd4c3a1bb102'
+    company = clearbit.Company.find(domain=f'{job.company}.com',stream=True)
 
-    # permission_required = 'jobs.title'
-    # raise_exception = False
-    
+    return render(request, 'main_app/job_detail.html', {
+        'job': job,
+        'company': company['name'],
+        'domain': company['domain'],
+        'description': company['description'],
+        'industry': company['category']['industry'] 
+    })
 
-    # def get_queryset(self):
-    #     if self.request.user.is_authenticated:
-    #         return Job.objects.filter(user=self.request.user)
-    #     else:
-    #         return Job.objects.none()
+# class JobDetail(LoginRequiredMixin, DetailView):
+#     model = Job
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+
+#         clearbit.key = 'sk_d07964faa899c455e891fd4c3a1bb102'
+#         company_info = clearbit.Company.find(domain='uber.com',stream=True)
+
+#         return context, company_info
+
 
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
@@ -39,6 +61,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job

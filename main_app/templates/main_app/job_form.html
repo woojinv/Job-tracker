@@ -14,9 +14,6 @@
         {% csrf_token %} 
         {% for field in form %}
             {% if field.name == 'date_applied' %}
-
-
-
                 <fieldset class="form-group">
                     <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
                     <div class="form-control">
@@ -31,7 +28,6 @@
                             > 
                     </div>
                 </fieldset>
-
             {% elif field.name == 'company' %}
                 <fieldset class="form-group">
                     <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -48,8 +44,6 @@
                         <small class="text-muted">Do not include special characters (apostrophes, dashes, etc.)</small>
                     </div>
                 </fieldset>
-
-
             {% elif field.name == 'description' or field.name == 'tech_reqs' %}
                 <fieldset class="form-group">
                     <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -85,6 +79,7 @@
         </form>
 
 {% else %}
+
     <h1>You do not have access to this page 😡</h1>
 
 {% endif %}
