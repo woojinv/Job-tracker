@@ -58,11 +58,10 @@
                             name="{{ field.name }}"
                             id="id_{{ field.name }}"
                             {% if field.value != None %}
-                                value="{{ field.value }}" 
+                                >{{ field.value }}</textarea> 
                             {% else %}
-                                value=""
+                                ></textarea> 
                             {% endif %}
-                            >{{ field.value }}</textarea> 
                     </div>
                 </fieldset>
             {% else %}
