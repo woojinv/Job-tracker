@@ -10,14 +10,6 @@
         <h1>Add Job</h1>
     {% endif %}
 
-    {% comment %} <div class="container form-container">
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Add Job" class="btn">
-        </form>
-    </div> {% endcomment %}
-
     <form class="form-contact" action="" method="POST">
         {% csrf_token %} 
         {% for field in form %}
@@ -36,11 +28,11 @@
                             > 
                     </div>
                 </fieldset>
-            {% elif field.name == 'description' %}
+            {% elif field.name == 'description' or field.name == 'tech_reqs' %}
                 <fieldset class="form-group">
                     <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
                     <div class="form-control">
-                        <input type="textarea" rows="3" class="form-control"
+                        <textarea rows="3" class="form-control"
                             name="{{ field.name }}"
                             id="id_{{ field.name }}"
                             {% if field.value != None %}
@@ -48,7 +40,7 @@
                             {% else %}
                                 value=""
                             {% endif %}
-                            > 
+                            ></textarea> 
                     </div>
                 </fieldset>
             {% else %}
@@ -67,9 +59,8 @@
                     </div>
                 </fieldset>
             {% endif %}
-        
         {% endfor %}
-           <input type="submit" value="Submit"  class="btn btn-primary">
+           <input type="submit" value="Submit"  class="btn job-btn">
         </form>
 
 {% else %}
