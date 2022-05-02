@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
-# import requests
+
 import clearbit
 
 
@@ -33,6 +34,7 @@ class JobList(LoginRequiredMixin, ListView):
         return Job.objects.filter(user=self.request.user)
 
 
+@login_required
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
     clearbit.key = settings.API_KEY
