@@ -4,7 +4,7 @@
 
 {% if user %}
 
-    {% if object %}
+    {% if object and user.id == job.user_id %}
         <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
     {% else %}
         <h1>Add Job</h1>
