@@ -39,7 +39,8 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
     model = Job
-    fields = '__all__'
+    fields = ['company', 'title', 'salary', 'location', 'date_applied', 'tech_reqs', 'status', 'source', 'description']
+
 
 class JobDelete(LoginRequiredMixin, DeleteView):
     model = Job
