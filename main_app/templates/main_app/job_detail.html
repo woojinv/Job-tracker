@@ -3,38 +3,45 @@
 
 
 {% if user.id == job.user_id %}
-    <h1>Job Details</h1>
+    <div class="row">
+        <div class="col-8">
+            <h1>Job Details</h1>
+        </div>
+        <div class="col-4 detail-header">
+            <a class="btn job-btn" href="{% url 'jobs_index' %}">My Jobs</a>
+        </div>
+    </div>
     <hr />
-    <p>Details about {{ job.title }} at {{ job.company }}</p>
-
 
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-6">
-                    <h4 class="card-title">{{ job.company }}</h4>
-                    <p>Title: {{ job.title }}</p>
-                    <p>Salary: {{ job.salary }}</p>
-                    <p>Location: {{ job.location }}</p>
+                <div class="col-7 detail-left">
+                    <h3 class="card-title">{{ job.company }}</h3>
+                    <h5>{{ job.title }}</h5>
+                    <p>${{ job.salary }}</p>
+                    <p>{{ job.location }}</p>
                 </div>
-                <div class="col-6">
-                    <p>Date Applied: {{ job.date_applied }}</p>
-                    <p>Status: {{ job.status }}</p>
+                <div class="col-5 detail-right">                    
+                    <h5>{{ job.status }}</h5>
+                    <p>Applied {{ job.date_applied }}</p>
                 </div>
             </div>
             <div class="row">
-                <p>Technical Requirements: {{ job.tech_reqs }}</p>
+                <h5>Technical Requirements</h5> 
+                <p> {{ job.tech_reqs }}</p>
             </div>
             <div class="row">
-                <p>Description: {{ job.description }}</p>
+                <h5>Description</h5> 
+                <p>{{ job.description }}</p>
             </div>
             <div class="row">
                 <p>Source: {{ job.source }}<p>
             </div>
             <div class="row">
                 <div>
-                    <a href="{% url 'jobs_update' job.id %}">Edit</a>
-                    <a href="{% url 'jobs_delete' job.id %}">Delete</a>
+                    <a class="btn job-btn" href="{% url 'jobs_update' job.id %}">Edit</a>
+                    <a class="btn job-btn" href="{% url 'jobs_delete' job.id %}">Delete</a>
                 </div>  
             </div>
         </div>   

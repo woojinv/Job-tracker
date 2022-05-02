@@ -2,21 +2,66 @@
 
 {% block content %}
 
-{% if user.id == job.user_id %}
+{% if user %}
 
     {% if object %}
         <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
     {% else %}
         <h1>Add Job</h1>
     {% endif %}
-        
 
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Add Job" class="btn">
-    </form>
+    <form class="form-contact" action="" method="POST">
+        {% csrf_token %} 
+        {% for field in form %}
+            {% if field.name == 'date_applied' %}
+                <fieldset class="form-group">
+                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="form-control">
+                        <input type="date" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            {% if field.value != None %}
+                                value="{{ field.value }}" 
+                            {% else %}
+                                value=""
+                            {% endif %}
+                            > 
+                    </div>
+                </fieldset>
+            {% elif field.name == 'description' or field.name == 'tech_reqs' %}
+                <fieldset class="form-group">
+                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="form-control">
+                        <textarea rows="3" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            {% if field.value != None %}
+                                value="{{ field.value }}" 
+                            {% else %}
+                                value=""
+                            {% endif %}
+                            ></textarea> 
+                    </div>
+                </fieldset>
+            {% else %}
+                <fieldset class="form-group">
+                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="form-control">
+                        <input type="text" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            {% if field.value != None %}
+                                value="{{ field.value }}" 
+                            {% else %}
+                                value=""
+                            {% endif %}
+                            > 
+                    </div>
+                </fieldset>
+            {% endif %}
+        {% endfor %}
+           <input type="submit" value="Submit"  class="btn job-btn submit-btn">
+        </form>
 
 {% else %}
     <h1>You do not have access to this page 😡</h1>
