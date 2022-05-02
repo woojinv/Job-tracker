@@ -5,13 +5,17 @@ from .models import Job
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.conf import settings
 # import requests
 import clearbit
+
+
 
 def home(request):
 
     variable_name = 'twitch'
-    clearbit.key = 'sk_d07964faa899c455e891fd4c3a1bb102'
+    clearbit.key = settings.API_KEY
+
     company = clearbit.Company.find(domain=f'{variable_name}.com',stream=True)
 
     return render(request, 'home.html', {
@@ -31,7 +35,7 @@ class JobList(LoginRequiredMixin, ListView):
 
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
-    clearbit.key = 'sk_d07964faa899c455e891fd4c3a1bb102'
+    clearbit.key = settings.API_KEY
     company = clearbit.Company.find(domain=f'{job.company}.com',stream=True)
 
     return render(request, 'main_app/job_detail.html', {
