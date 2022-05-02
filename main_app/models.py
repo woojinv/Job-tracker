@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django import forms
 
 # Create your models here.
 class Job(models.Model):
