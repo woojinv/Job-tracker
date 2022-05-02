@@ -89,3 +89,9 @@ p {
   color: var(--clr-light);
   background-color: var(--clr-mid);
 }
+
+.detail-header{
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
