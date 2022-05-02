@@ -9,14 +9,35 @@
     {% else %}
         <h1>Add Job</h1>
     {% endif %}
-        
 
+    {% comment %} <div class="container form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Add Job" class="btn">
+        </form>
+    </div> {% endcomment %}
 
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Add Job" class="btn">
-    </form>
+    <form class="form-contact" action="" method="POST">
+        {% csrf_token %} 
+        {% for field in form %}
+        <fieldset class="form-group">
+          <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+            <div class="form-control">
+              <input type="text" class="form-control"
+                name="{{ field.name }}"
+                id="id_{{ field.name }}"
+                {% if field.value != None %}
+                    value="{{ field.value }}" 
+                {% else %}
+                    value=""
+                {% endif %}
+                > 
+               </div>
+        </fieldset>
+        {% endfor %}
+           <input type="submit" value="Submit"  class="btn btn-primary">
+        </form>
 
 {% else %}
     <h1>You do not have access to this page 😡</h1>
