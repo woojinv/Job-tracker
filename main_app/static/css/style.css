@@ -93,8 +93,17 @@ p {
   background-color: var(--clr-mid);
 }
 
-.detail-header{
+.detail-header {
   margin: auto;
   display: flex;
   justify-content: flex-end;
+}
+
+.logo {
+  max-width: 60px;
+  /* margin: 0 auto; */
+}
+
+.link-col {
+  text-align: center;
 }
