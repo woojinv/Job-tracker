@@ -45,11 +45,11 @@ footer.page-footer {
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--clr-dark);
 }
 
 a:hover {
-  color: var(--clr-dark);
+  color: var(--clr-mid);
 }
 
 h1 {
@@ -93,8 +93,29 @@ p {
   background-color: var(--clr-mid);
 }
 
-.detail-header{
+.detail-header {
   margin: auto;
   display: flex;
   justify-content: flex-end;
+}
+
+.logo {
+  max-width: 40px;
+  /* margin: 0 auto; */
+}
+
+.link-col {
+  text-align: center;
+}
+
+.icon {
+  max-width: 100%;
+}
+
+.col-2 {
+  text-align: center;
+}
+
+.index-card {
+  margin: auto;
 }

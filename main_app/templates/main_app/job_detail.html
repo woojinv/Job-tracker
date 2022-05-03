@@ -22,7 +22,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-2">
-                    <img src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
+                    <img class="icon" src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
                 </div>      
                 <div class="col-5 detail-left">
                     <h3 class="card-title">{{ job.company }}</h3>
@@ -84,62 +84,36 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-2">
-                    <a href="https://www.linkedin.com/{{ linkedin_handle }}">
-                        <img class="logo" src="../static/images/linkedin.svg" alt="">
-                    </a>
-                    <a href="https://www.twitter.com/{{ twitter_handle }}">
-                        <img class="logo" src="../static/images/twitter.svg" alt="">
-                    </a>
-                    <a href="https://www.facebook.com/{{ facebook_handle }}">
-                        <img class="logo" src="../static/images/facebook.svg" alt="">
-                    </a>
-                </div>      
-                <div class="col-5 detail-left">
-                    <h3 class="card-title">{{ job.company }}</h3>
-                    <h5>{{ job.title }}</h5>
-                    <p>${{ job.salary }}</p>
-                    <p>{{ job.location }}</p>
-                </div>
-                <div class="col-5 detail-right">                    
-                    <h5>{{ job.status }}</h5>
-                    <p>Applied {{ job.date_applied }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-2">
+                <div class="col-2 link-col">
+                    <div class="row">
+                        <a href="https://www.linkedin.com/{{ linkedin_handle }}" target="_blank">
+                            <img class="logo" src="../static/images/linkedin.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a href="https://www.twitter.com/{{ twitter_handle }}" target="_blank">
+                            <img class="logo" src="../static/images/twitter.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a href="https://www.facebook.com/{{ facebook_handle }}" target="_blank">
+                            <img class="logo" src="../static/images/facebook.svg" alt="">
+                        </a>
+                    </div>
                 </div>
                 <div class="col-8">
-                    <h5>Technical Requirements</h5> 
-                    <p> {{ job.tech_reqs }}</p>
+                    <div class="row">
+                        <a href="https://www.{{ domain }}" target="_blank">
+                            <h3 class="card-title">{{ job.company }}</h3>
+                        </a>
+                        <p class="subhead">{{ sub_industry }}</p>
+                    </div>
+                    <div class="row">
+                        <p>{{ description}}</p>
+                    </div>
                 </div>
-                <div class="col-2"></div>
-                
-            </div>
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8">
-                    <h5>Description</h5> 
-                    <p>{{ job.description }}</p>                    
-                </div>
-                <div class="col-2"></div>
-
-            </div>
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-10">
-                    <p>Source: {{ job.source }}</p>               
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-10">
-                    <a class="btn job-btn" href="{% url 'jobs_update' job.id %}">Edit</a>
-                    <a class="btn job-btn" href="{% url 'jobs_delete' job.id %}">Delete</a>                    
-                </div>
-
-            </div>
+                <div class="col-2"></div>  
+            </div>   
         </div>   
     </div>
 
