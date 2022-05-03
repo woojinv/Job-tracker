@@ -16,7 +16,6 @@ S3_BASE_URL = settings.S3_BASE_URL
 BUCKET = settings.BUCKET_NAME
 
 
-
 def home(request):
 
     variable_name = 'twitch'
@@ -54,18 +53,6 @@ def jobs_detail(request, job_id):
         'twitter_handle': company['twitter']['handle'],
         'facebook_handle': company['facebook']['handle'],
     })
-
-# class JobDetail(LoginRequiredMixin, DetailView):
-#     model = Job
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-
-#         clearbit.key = 'sk_d07964faa899c455e891fd4c3a1bb102'
-#         company_info = clearbit.Company.find(domain='uber.com',stream=True)
-
-#         return context, company_info
-
 
 class JobCreate(LoginRequiredMixin, CreateView):
     model = Job
@@ -108,8 +95,13 @@ def add_document(request, job_id):
         s3 = boto3.client('s3')
         # need a unique "key" for S3 / needs image file extension too
         key = uuid.uuid4().hex[:6] + document_file.name[document_file.name.rfind('.'):]
+        # key.set_metadata('Content-Type', 'application/pdf')
+        # print(BUCKET, '<< bucket')
+        # print(dir(key), '<< key attributes')
         # just in case something goes wrong
         try:
+            # print(s3.meta.__dict__, '<< s3')
+            print(document_file.content_type, '<--doc content type')
             s3.upload_fileobj(document_file, BUCKET, key)
             name = request._post['name']
             # build the full url string
