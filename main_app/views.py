@@ -42,10 +42,12 @@ def jobs_detail(request, job_id):
 
     return render(request, 'main_app/job_detail.html', {
         'job': job,
-        'company': company['name'],
         'domain': company['domain'],
+        'sub_industry': company['category']['subIndustry'],
         'description': company['description'],
-        'industry': company['category']['industry'] 
+        'linkedin_handle': company['linkedin']['handle'],
+        'twitter_handle': company['twitter']['handle'],
+        'facebook_handle': company['facebook']['handle'],
     })
 
 # class JobDetail(LoginRequiredMixin, DetailView):

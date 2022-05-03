@@ -6,13 +6,13 @@ from django.contrib.auth.models import User
 class Job(models.Model):
     company = models.CharField(max_length=100)
     title = models.CharField('Job Title', max_length=100)
-    salary = models.CharField(max_length=50)
+    salary = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     date_applied = models.DateField('Date Applied')
     tech_reqs = models.TextField('Technical Requirements', max_length=500)
-    status = models.CharField(max_length=50)
-    source = models.CharField(max_length=50)
-    description = models.TextField(max_length=250)
+    status = models.CharField(max_length=100)
+    source = models.CharField(max_length=100)
+    description = models.TextField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
