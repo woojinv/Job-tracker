@@ -12,8 +12,8 @@ import boto3
 import clearbit
 
 # Add these "constant" variables below the imports
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'jobtracker-seir'
+S3_BASE_URL = settings.S3_BASE_URL
+BUCKET = settings.BUCKET_NAME
 
 
 
