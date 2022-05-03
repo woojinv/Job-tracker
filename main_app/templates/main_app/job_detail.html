@@ -85,7 +85,9 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-2">
-                    <img src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
+                    <a href="https://www.linkedin.com/{{ linkedin_handle }}">
+                        <img class="logo" src="../static/images/linkedin.svg" alt="">
+                    </a>
                 </div>      
                 <div class="col-5 detail-left">
                     <h3 class="card-title">{{ job.company }}</h3>
