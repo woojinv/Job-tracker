@@ -3,10 +3,6 @@
 {% block content %}
 
 {% if user %}
-
-
-
-{% if user %}
     
     {% if object %}
         
@@ -165,89 +161,7 @@
     <h1>You do not have access to this page 😡</h1>    
     
 {% endif %}
-    
 
-
-<!-- 
-    {% if object and user.id == job.user_id %}
-        <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
-    {% else %}
-        <h1>Add Job</h1>
-    {% endif %}
-
-    <form class="form-contact" action="" method="POST">
-        {% csrf_token %} 
-        {% for field in form %}
-            {% if field.name == 'date_applied' %}
-                <fieldset class="form-group">
-                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                    <div class="form-control">
-                        <input type="date" class="form-control"
-                            name="{{ field.name }}"
-                            id="id_{{ field.name }}"
-                            {% if field.value != None %}
-                                value="{{ field.value|date:'Y-m-d' }}" 
-                            {% else %}
-                                value=""
-                            {% endif %}
-                            > 
-                    </div>
-                </fieldset>
-            {% elif field.name == 'company' %}
-                <fieldset class="form-group">
-                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                    <div class="form-control">
-                        <input type="text" class="form-control"
-                            name="{{ field.name }}"
-                            id="id_{{ field.name }}"
-                            {% if field.value != None %}
-                                value="{{ field.value }}" 
-                            {% else %}
-                                value=""
-                            {% endif %}
-                            > 
-                        <small class="text-muted">Do not include special characters (apostrophes, dashes, etc.)</small>
-                    </div>
-                </fieldset>
-            {% elif field.name == 'description' or field.name == 'tech_reqs' %}
-                <fieldset class="form-group">
-                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                    <div class="form-control">
-                        <textarea rows="3" class="form-control"
-                            name="{{ field.name }}"
-                            id="id_{{ field.name }}"
-                            {% if field.value != None %}
-                                >{{ field.value }}</textarea> 
-                            {% else %}
-                                ></textarea> 
-                            {% endif %}
-                    </div>
-                </fieldset>
-            {% else %}
-                <fieldset class="form-group">
-                    <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                    <div class="form-control">
-                        <input type="text" class="form-control"
-                            name="{{ field.name }}"
-                            id="id_{{ field.name }}"
-                            {% if field.value != None %}
-                                value="{{ field.value }}" 
-                            {% else %}
-                                value=""
-                            {% endif %}
-                            > 
-                    </div>
-                </fieldset>
-            {% endif %}
-        {% endfor %}
-           <input type="submit" value="Submit"  class="btn job-btn submit-btn">
-        </form>
-
-{% else %}
-
-    <h1>You do not have access to this page 😡</h1>
-
-{% endif %} -->
     
 {% endblock content %}
     
