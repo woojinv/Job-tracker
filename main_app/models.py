@@ -19,4 +19,4 @@ class Job(models.Model):
         return f"{self.company}"
     
     def get_absolute_url(self):
-        return reverse('jobs_detail', kwargs={'pk': self.id})
+        return reverse('jobs_detail', kwargs={'job_id': self.id})
