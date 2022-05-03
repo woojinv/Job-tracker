@@ -25,7 +25,7 @@ class Job(models.Model):
 
 
 class Document(models.Model):
-    # name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     url = models.CharField(max_length=200)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)

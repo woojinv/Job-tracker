@@ -111,10 +111,11 @@ def add_document(request, job_id):
         # just in case something goes wrong
         try:
             s3.upload_fileobj(document_file, BUCKET, key)
+            name = request._post['name']
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             # we can assign to cat_id or cat (if you have a cat object)
-            Document.objects.create(url=url, job_id=job_id)
+            Document.objects.create(url=url, job_id=job_id, name=name)
         except:
             print('An error occurred uploading file to S3')
     return redirect('jobs_detail', job_id=job_id)
