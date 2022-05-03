@@ -8,6 +8,9 @@ class Document(models.Model):
     url = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.name} for {self.user} at {self.url}."        
+
 # Create your models here.
 class Job(models.Model):
     company = models.CharField(max_length=100)
