@@ -12,13 +12,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                            <img src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
+                            <img class="icon" src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
                     </div>
-                    <div class="col-5">
+                    <div class="col-8 index-card">
                         <h5 class="card-title">{{ job.company }}</h5>
                         <p class="card-text">{{ job.title }}</p>
                     </div>
-                    <div class="col-5 job-status">
+                    <div class="col-2 job-status">
                         <p class="card-text">{{ job.status }}</p>
                     </div>
                 </div>
