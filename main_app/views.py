@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
-from .models import Job
+from .models import Job, Document
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-
+import uuid
+import boto3
 import clearbit
+
+# Add these "constant" variables below the imports
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'jobtracker-seir'
 
 
 
@@ -94,3 +99,22 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+
+def add_document(request, job_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+    document_file = request.FILES.get('document-file', None)
+    if document_file:
+        s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + document_file.name[document_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            s3.upload_fileobj(document_file, BUCKET, key)
+            # build the full url string
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            # we can assign to cat_id or cat (if you have a cat object)
+            Document.objects.create(url=url, job_id=job_id)
+        except:
+            print('An error occurred uploading file to S3')
+    return redirect('jobs_detail', job_id=job_id)
