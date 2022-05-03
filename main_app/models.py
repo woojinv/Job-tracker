@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 
 
 class Document(models.Model):
-    name = models.CharField(max_length=100)
+    # name = models.CharField(max_length=100)
     url = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.name} for {self.user} at {self.url}."        
+        return f"document for {self.user} at {self.url}."        
 
 # Create your models here.
 class Job(models.Model):

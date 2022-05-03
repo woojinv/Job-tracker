@@ -117,17 +117,35 @@
         </div>   
     </div>
 
+    
+    <!-- Documents -->
+    <br />
+    <div class="row">
+        <h1>Documents</h1>
+
+    </div>
+    <hr />
+
     <div class="card">
         
-        {% for document in job.document_set.all %}
+        {% for document in job.documents.all %}
 
-            <a href="{{ document.url }}">{{ document.name }}</a>
+            <p>Stuff exists here</p>
 
         {% empty %}
 
-            <h2>No Documents Uploaded</h2>
+            <h3>No Documents Uploaded</h3>
             
         {% endfor %}
+
+        <form action="{% url 'add_document' job.id %}" enctype="multipart/form-data" method="POST" class="card">
+            {% csrf_token %}
+            <!-- <label for="name">Name: </label>
+            <input type="text" name="name"> -->
+            <input type="file" name="document-file">
+            <br><br>
+            <input type="submit" class="btn job-btn" value="Upload Document">
+        </form>
             
     </div>
 
