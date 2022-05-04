@@ -2,6 +2,17 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+STATUSES = (
+    ('1', 'Applying'),
+    ('2', 'Applied'),
+    ('3', 'Interviewing'),
+    ('4', 'Pending'),
+    ('5', 'Position Offered'),
+    ('6', 'Position Not Offered'),
+    ('7', 'Offer Rejected'),
+    ('8', 'Offer Accepted')
+)
+
 # Create your models here.
 class Job(models.Model):
     company = models.CharField(max_length=100)
@@ -15,6 +26,8 @@ class Job(models.Model):
     description = models.TextField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     # documents = models.ManyToManyField(Document)
+
+
 
     def __str__(self):
         return f"{self.company}"
