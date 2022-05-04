@@ -4,8 +4,11 @@
 {% if user.id == job.user_id %}
 
     <!-- Job details -->
+    
     <div class="row">
+        
         <div class="col-8">
+            <p>{{ job.status }}</p>
             <h1>Job Details</h1>
         </div>
         <div class="col-4 detail-header">
