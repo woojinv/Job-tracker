@@ -18,7 +18,9 @@
 
   <header>
     <nav class="navbar navbar-expand-md navbar-dark">
-        <a class="navbar-brand" href="/">Job Depot</a>
+      <a class="navbar-brand" href="/">
+        <img src="../static/images/logo-light.png" height="40" class="d-inline-block align-top" alt="">
+      </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +41,7 @@
   </header>
 
 
-  <main class="container">
+  {% comment %} <main class="container"> {% endcomment %}
     {% block content %}
     {% endblock %}
   </main>
