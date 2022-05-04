@@ -1,12 +1,33 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-<h1>Welcome to the Job Tracker</h1>
 
-<h2>{{ company }}</h2>
-<h3>{{ domain }}</h3>
-<h4>{{ description }}</h4>
-<h5>{{ industry }}</h5>
+<h2>Keeping track of your job applications can be a pain</h2>
+<p>
+    Job Depot is your one-stop shop for managing your job applications.
+</p>
+<ul>
+    <li>
+        Add a job you're interested in
+    </li>
+    <li>
+        Include relevant information
+    </li>
+    <li>
+        Access company details
+    </li>
+    <li>
+        Keep tabs on the application process
+    </li>
+    <li>
+        Upload your resume and cover letter
+    </li>
+    <li>
+        View all applications at a glance
+    </li>
+</ul>
+
+<a class="btn job-btn" href="{% url 'signup' %}">Sign Up</a>
+<a class="btn job-btn" href="{% url 'login' %}">Log In</a>
 
 
 {% endblock %}

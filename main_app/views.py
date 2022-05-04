@@ -18,18 +18,7 @@ BUCKET = settings.BUCKET_NAME
 
 
 def home(request):
-
-    variable_name = 'twitch'
-    clearbit.key = settings.API_KEY
-
-    company = clearbit.Company.find(domain=f'{variable_name}.com',stream=True)
-
-    return render(request, 'home.html', {
-        'company': company['name'],
-        'domain': company['domain'],
-        'description': company['description'],
-        'industry': company['category']['industry']
-    })
+    return render(request, 'home.html')
 
 
 class JobList(LoginRequiredMixin, ListView):
