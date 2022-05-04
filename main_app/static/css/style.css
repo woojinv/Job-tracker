@@ -12,6 +12,8 @@
   --clr-alt: #255C99;  
 }
 
+
+
 nav {
   background-color: var(--clr-dark);
 }
@@ -21,7 +23,8 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: var(--clr-light);
-}
+    font-family: 'Noto Sans', sans-serif;
+  }
   
 main {
     flex: 1 0 auto;
