@@ -82,6 +82,10 @@ p {
   background-color: var(--clr-alt);
 }
 
+.doc-title {
+  text-decoration: underline;
+}
+
 .detail-header {
   margin: auto;
   display: flex;
