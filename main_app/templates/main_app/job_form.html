@@ -57,6 +57,19 @@
                                     {% endif %}
                             </div>
                         </fieldset>
+                    {% elif field.name == 'status' %}
+                        <fieldset class="form-group">
+                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                <div class="form-control">
+                                <select class="form-select">
+                                
+                                    {% for choice in job.status %}
+                                        <option value="{{ choice }}">{{ choice }}</option>
+                                    {% endfor %}
+                                        
+                                </select>
+                                </div>
+                        </fieldset>
                     {% else %}
                         <fieldset class="form-group">
                             <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
