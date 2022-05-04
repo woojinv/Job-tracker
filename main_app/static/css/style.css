@@ -6,13 +6,28 @@
 
 :root {
   --clr-light: #f8f9fa;
-  --clr-lmid: #ced4da;
+  --clr-lmid: #dee2e6;
   --clr-mid: #6c757d;
   --clr-dark: #212529;
-  --clr-alt: #255C99;  
+  --clr-alt: #255C99;
+  --clr-feat: #495057;  
+  --fs-h1: 4rem;
+  --fs-h2: 1.75rem;
+  --fs-h3: 1.5rem;
+  --fs-body: 1.115rem;
 }
 
+h1 {
+  font-size: var(--fs-h1);
+}
 
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
 
 nav {
   background-color: var(--clr-dark);
@@ -24,6 +39,7 @@ body {
     flex-direction: column;
     background-color: var(--clr-light);
     font-family: 'Noto Sans', sans-serif;
+    font-size: var(--fs-body);
   }
   
 main {
@@ -44,9 +60,7 @@ a:hover {
   color: var(--clr-mid);
 }
 
-h1 {
-  margin: 10px;
-}
+
 
 p {
   margin-bottom: 0;
@@ -136,4 +150,8 @@ p {
 
 .file-up {
   max-width: 210px;
+}
+
+.feature {
+  color: var(--clr-feat);
 }
