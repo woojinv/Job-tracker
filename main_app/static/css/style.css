@@ -4,23 +4,12 @@
   box-sizing: border-box;
 } 
 
-
-/* blues */
-/* :root {
-  --clr-light: #CEE5F2;
-  --clr-lmid: #ACCBE1;
-  --clr-mid: #7C98B3;
-  --clr-dark: #637081;
-  --clr-alt: #536B78;  
-} */
-
-/* alt color scheme */
 :root {
-  --clr-light: #E2EAF3;
-  --clr-lmid: #CCAD8F;
-  --clr-mid: #255C99;
-  --clr-dark: #262626;
-  --clr-alt: #BB0A21;  
+  --clr-light: #f8f9fa;
+  --clr-lmid: #ced4da;
+  --clr-mid: #6c757d;
+  --clr-dark: #212529;
+  --clr-alt: #255C99;  
 }
 
 nav {
@@ -90,7 +79,7 @@ p {
 
 .job-btn {
   color: var(--clr-light);
-  background-color: var(--clr-mid);
+  background-color: var(--clr-alt);
 }
 
 .detail-header {
