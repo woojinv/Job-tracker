@@ -21,7 +21,11 @@ class Job(models.Model):
     location = models.CharField(max_length=100)
     date_applied = models.DateField('Date Applied')
     tech_reqs = models.TextField('Technical Requirements', max_length=500)
-    status = models.CharField(max_length=100)
+    status = models.CharField(
+        max_length = 1,
+        choices=STATUSES,
+        default=STATUSES[0][0]
+    )
     source = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
