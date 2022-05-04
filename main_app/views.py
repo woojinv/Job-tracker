@@ -96,17 +96,9 @@ def add_document(request, job_id):
         s3 = boto3.client('s3')
         # need a unique "key" for S3 / needs image file extension too
         key = uuid.uuid4().hex[:6] + document_file.name[document_file.name.rfind('.'):]
-        # key.set_metadata('Content-Type', 'application/pdf')
-        # print(BUCKET, '<< bucket')
-        # print(dir(key), '<< key attributes')
         # just in case something goes wrong
         try:
-            # print(s3.meta.__dict__, '<< s3')
-            print(document_file.content_type, '<--doc content type')
-            # s3.meta.client.upload_file(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf", 'ACL': "public-read"} )
             s3.upload_fileobj(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf"})
-            # s3.meta.client.upload_file(document_file, BUCKET, key)
-            print('howdy')
             name = request._post['name']
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
