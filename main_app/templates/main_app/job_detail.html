@@ -27,8 +27,18 @@
                     <p>${{ job.salary }}</p>
                     <p>{{ job.location }}</p>
                 </div>
-                <div class="col-5 detail-right">                    
-                    <h5>{{ job.get_status_display }}</h5>
+                <div class="col-5 detail-right">
+                    {% if job.status in "12" %}
+                        <span style="color: blue">
+                    {% elif job.status in "34" %}
+                        <span style="color: yellow">
+                    {% elif job.status in "58" %}  
+                        <span style="color: green">
+                    {% elif job.status in "67" %}
+                        <span style="color: red">
+                    {% endif %}                    
+                            <h5>{{ job.get_status_display }}</h5>
+                        </span>
                     <p>Applied {{ job.date_applied }}</p>
                 </div>
             </div>
