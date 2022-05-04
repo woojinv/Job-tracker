@@ -19,7 +19,21 @@
                         <p class="card-text">{{ job.title }}</p>
                     </div>
                     <div class="col-2 job-status">
-                        <p class="card-text">{{ job.status }}</p>
+
+                        
+                        {% if job.status in "12" %}
+                            <span style="color: blue">
+                        {% elif job.status in "34" %}
+                            <span style="color: yellow">
+                        {% elif job.status in "58" %}  
+                            <span style="color: green">
+                        {% elif job.status in "67" %}
+                            <span style="color: red">
+                        {% endif %}
+                            
+                            <h3 class="card-text">{{ job.get_status_display }}</h3>
+                        </span>
+
                     </div>
                 </div>
             </div>            
