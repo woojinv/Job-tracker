@@ -102,7 +102,10 @@ def add_document(request, job_id):
         try:
             # print(s3.meta.__dict__, '<< s3')
             print(document_file.content_type, '<--doc content type')
-            s3.upload_fileobj(document_file, BUCKET, key)
+            # s3.meta.client.upload_file(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf", 'ACL': "public-read"} )
+            s3.upload_fileobj(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf", 'ACL': "public-read"})
+            # s3.meta.client.upload_file(document_file, BUCKET, key)
+            print('howdy')
             name = request._post['name']
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
