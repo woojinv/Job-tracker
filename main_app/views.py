@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import uuid
 import boto3
+import botocore
 import clearbit
 
 # Add these "constant" variables below the imports
@@ -103,7 +104,7 @@ def add_document(request, job_id):
             # print(s3.meta.__dict__, '<< s3')
             print(document_file.content_type, '<--doc content type')
             # s3.meta.client.upload_file(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf", 'ACL': "public-read"} )
-            s3.upload_fileobj(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf", 'ACL': "public-read"})
+            s3.upload_fileobj(document_file, BUCKET, key, ExtraArgs={'ContentType': "application/pdf"})
             # s3.meta.client.upload_file(document_file, BUCKET, key)
             print('howdy')
             name = request._post['name']
@@ -111,6 +112,7 @@ def add_document(request, job_id):
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             # we can assign to cat_id or cat (if you have a cat object)
             Document.objects.create(url=url, job_id=job_id, name=name)
-        except:
-            print('An error occurred uploading file to S3')
+        except botocore.exceptions.ClientError as err:
+            print(err)
+            # print('An error occurred uploading file to S3')
     return redirect('jobs_detail', job_id=job_id)
