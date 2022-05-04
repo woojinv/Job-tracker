@@ -62,7 +62,7 @@
                         <fieldset class="form-group">
                             <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
                                 <div class="form-control">
-                                <select class="form-select">
+                                <select name="{{ field.name }}" class="form-select">
                                     <option value="1">Applying</option>
                                     <option value="2">Applied</option>
                                     <option value="3">Interviewing</option>
@@ -156,7 +156,7 @@
                     <fieldset class="form-group">
                         <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
                         <div class="form-control">
-                            <select class="form-select">
+                            <select name="{{ field.name }}" class="form-select">
                                 <option value="1">Applying</option>
                                 <option value="2">Applied</option>
                                 <option value="3">Interviewing</option>
