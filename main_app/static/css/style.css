@@ -108,3 +108,14 @@ p {
 .index-card {
   margin: auto;
 }
+
+.form-contact {
+  width: 600px;
+  max-width: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

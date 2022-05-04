@@ -8,81 +8,82 @@
         
         {% if user.id == job.user_id %}
 
-            <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
-            <p>{{ job.status.choices }}</p>
-            <form class="form-contact" action="" method="POST">
-                {% csrf_token %} 
-                {% for field in form %}
-                    {% if field.name == 'date_applied' %}
-                        <fieldset class="form-group">
-                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                            <input type="date" class="form-control"
-                                name="{{ field.name }}"
-                                id="id_{{ field.name }}"
-                                {% if field.value != None %}
-                                    value="{{ field.value|date:'Y-m-d' }}" 
-                                {% else %}
-                                    value=""
-                                {% endif %}
-                                > 
-                        </fieldset>
-                    {% elif field.name == 'company' %}
-                        <fieldset class="form-group">
-                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                            <input maxlength="100" type="text" class="form-control"
-                                name="{{ field.name }}"
-                                id="id_{{ field.name }}"
-                                {% if field.value != None %}
-                                    value="{{ field.value }}" 
-                                {% else %}
-                                    value=""
-                                {% endif %}
-                                > 
-                            <small class="text-muted">Do not include special characters (apostrophes, dashes, etc.)</small>
-                        </fieldset>
-                    {% elif field.name == 'description' or field.name == 'tech_reqs' %}
-                        <fieldset class="form-group">
-                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                            <textarea maxlength="500" rows="3" class="form-control"
-                                name="{{ field.name }}"
-                                id="id_{{ field.name }}"
-                                {% if field.value != None %}
-                                    >{{ field.value }}</textarea> 
-                                {% else %}
-                                    ></textarea> 
-                                {% endif %}
-                        </fieldset>
-                    {% elif field.name == 'status' %}
-                        <fieldset class="form-group">
-                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                            <select name="{{ field.name }}" class="form-select">
-                                <option value="1">Applying</option>
-                                <option value="2">Applied</option>
-                                <option value="3">Interviewing</option>
-                                <option value="4">Pending</option>
-                                <option value="5">Position Offered</option>
-                                <option value="6">Position Not Offered</option>
-                                <option value="7">Offer Rejected</option>
-                                <option value="8">Offer Accepted</option>                     
-                            </select>
-                        </fieldset>
-                    {% else %}
-                        <fieldset class="form-group">
-                            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                            <input maxlength="100" type="text" class="form-control"
-                                name="{{ field.name }}"
-                                id="id_{{ field.name }}"
-                                {% if field.value != None %}
-                                    value="{{ field.value }}" 
-                                {% else %}
-                                    value=""
-                                {% endif %}
-                                > 
-                        </fieldset>
-                    {% endif %}
-                {% endfor %}
-                   <input type="submit" value="Submit"  class="btn job-btn submit-btn">
-            </form>
+            <div class="container form-container">
+                <h1>Edit <span class="teal-text">{{ job.title }} at {{ job.company }}</span></h1>
+                <form class="form-contact" action="" method="POST">
+                    {% csrf_token %} 
+                    {% for field in form %}
+                        {% if field.name == 'date_applied' %}
+                            <fieldset class="form-group">
+                                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                <input type="date" class="form-control"
+                                    name="{{ field.name }}"
+                                    id="id_{{ field.name }}"
+                                    {% if field.value != None %}
+                                        value="{{ field.value|date:'Y-m-d' }}" 
+                                    {% else %}
+                                        value=""
+                                    {% endif %}
+                                    > 
+                            </fieldset>
+                        {% elif field.name == 'company' %}
+                            <fieldset class="form-group">
+                                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                <input maxlength="100" type="text" class="form-control"
+                                    name="{{ field.name }}"
+                                    id="id_{{ field.name }}"
+                                    {% if field.value != None %}
+                                        value="{{ field.value }}" 
+                                    {% else %}
+                                        value=""
+                                    {% endif %}
+                                    > 
+                                <small class="text-muted">Do not include special characters (apostrophes, dashes, etc.)</small>
+                            </fieldset>
+                        {% elif field.name == 'description' or field.name == 'tech_reqs' %}
+                            <fieldset class="form-group">
+                                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                <textarea maxlength="500" rows="3" class="form-control"
+                                    name="{{ field.name }}"
+                                    id="id_{{ field.name }}"
+                                    {% if field.value != None %}
+                                        >{{ field.value }}</textarea> 
+                                    {% else %}
+                                        ></textarea> 
+                                    {% endif %}
+                            </fieldset>
+                        {% elif field.name == 'status' %}
+                            <fieldset class="form-group">
+                                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                <select name="{{ field.name }}" class="form-select">
+                                    <option value="1">Applying</option>
+                                    <option value="2">Applied</option>
+                                    <option value="3">Interviewing</option>
+                                    <option value="4">Pending</option>
+                                    <option value="5">Position Offered</option>
+                                    <option value="6">Position Not Offered</option>
+                                    <option value="7">Offer Rejected</option>
+                                    <option value="8">Offer Accepted</option>                     
+                                </select>
+                            </fieldset>
+                        {% else %}
+                            <fieldset class="form-group">
+                                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                <input maxlength="100" type="text" class="form-control"
+                                    name="{{ field.name }}"
+                                    id="id_{{ field.name }}"
+                                    {% if field.value != None %}
+                                        value="{{ field.value }}" 
+                                    {% else %}
+                                        value=""
+                                    {% endif %}
+                                    > 
+                            </fieldset>
+                        {% endif %}
+                    {% endfor %}
+                    <input type="submit" value="Submit"  class="btn job-btn submit-btn">
+                </form>
+            </div>
 
         {% else %}
 
