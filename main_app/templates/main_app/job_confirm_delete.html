@@ -44,15 +44,20 @@
 
 {% if user.id == job.user_id %}
     <h1>Delete Job</h1> 
+    <hr />
 
-    <h4>Are you sure you want to delete {{ object.title }} at {{ object.company }}</h4>
+    <div class="card shadow p-3 mb-5 rounded">
+      <div class="card-body">
+        <h4>Are you sure you want to delete {{ object.title }} at {{ object.company }}</h4>
+        <br>
 
-    <form action="" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Delete" class="btn job-btn">
-        <a class="btn job-btn" href="{% url 'jobs_detail' job.id %}">Cancel</a>
-    </form>
-    
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class="btn job-btn">
+            <a class="btn job-btn" href="{% url 'jobs_detail' job.id %}">Cancel</a>
+        </form>
+      </div>
+    </div>
 {% else %}
 <h1>You do not have access to this page 😡</h1>
 

@@ -19,7 +19,6 @@
                             value=""
                             > 
                     </fieldset>
-                    <br>
                 {% elif field.name == 'password' %}
                     <fieldset class="form-group">
                         <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -31,7 +30,6 @@
                     </fieldset>
                 {% endif %}
             {% endfor %}
-            <br>
             <input type="submit" class="btn job-btn" value="Log In">
             <input type="hidden" name="next" value="{{ next }}">
         </form>

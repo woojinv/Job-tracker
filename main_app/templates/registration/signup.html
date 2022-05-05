@@ -22,7 +22,6 @@
                             > 
                             <small class="text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
                     </fieldset>
-                    <br>
                 {% elif field.name == 'password1' %}
                     <fieldset class="form-group">
                         <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -39,7 +38,6 @@
                             <br>
                             <small class="text-muted">Your password can't be entirely numeric.</small>                    
                     </fieldset>
-                    <br>
                 {% elif field.name == 'password2' %}
                     <fieldset class="form-group">
                         <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -52,7 +50,6 @@
                     </fieldset>
                 {% endif %}
             {% endfor %}
-            <br>
             <input type="submit" class="btn job-btn" value="Sign Up">
         </form>
     </div>
