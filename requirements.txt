@@ -4,6 +4,7 @@ boto3==1.22.1
 botocore==1.25.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
+setuptools==62.1.0
 clearbit==0.1.7
 dj-database-url==0.5.0
 Django==4.0.4
@@ -18,7 +19,6 @@ python-dateutil==2.8.2
 python-dotenv==0.20.0
 requests==2.27.1
 s3transfer==0.5.2
-setuptools==58.0.0
 sqlparse==0.4.2
 urllib3==1.26.9
 whitenoise==6.0.0
