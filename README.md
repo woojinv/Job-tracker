@@ -20,9 +20,9 @@ Your one stop shop for keeping track of all your job applications.
 
 [Deployed Job Depot Application](https://job-depot.herokuapp.com/)
 
-[Pitch Deck](https://docs.google.com/presentation/d/1t4dNeRbPpikd3lwsKPkg0wFqiSOmW35-xS5Wr9TeLXA/edit?usp=sharing)
-
 [Notion Project Planning Board](https://tropical-pantydraco-c43.notion.site/Project-3-Job-Tracker-e78f1829da224c59b8008b595db0e553)
+
+[Pitch Deck](https://docs.google.com/presentation/d/1t4dNeRbPpikd3lwsKPkg0wFqiSOmW35-xS5Wr9TeLXA/edit?usp=sharing)
 
 ## Screenshots
 
@@ -36,6 +36,11 @@ Your one stop shop for keeping track of all your job applications.
 
 ![image](https://user-images.githubusercontent.com/100539234/167040986-70d07bbf-9f05-4168-9edc-3293aed2ec23.png)
 
+## Challenges
+
+- Deployment with 3rd party API integration
+- Clearbit API required Python version not supported by Heroku
+- Attempted upgrading and downgrading Python version, eventually had to abandon API on deployed application
 
 ## Technologies Used
 
