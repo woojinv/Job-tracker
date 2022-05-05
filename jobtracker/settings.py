@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jobtracker.wsgi.application'
+WSGI_APPLICATION = 'Job-tracker.wsgi.application'
 
 
 # Database
