@@ -10,11 +10,12 @@ from django.conf import settings
 import uuid
 import boto3
 import botocore
-import clearbit
+import os
+# import clearbit
 
 # Add these "constant" variables below the imports
-S3_BASE_URL = settings.S3_BASE_URL
-BUCKET = settings.BUCKET_NAME
+S3_BASE_URL = os.environ['S3_BASE_URL']
+BUCKET = os.environ['BUCKET_NAME']
 
 
 def home(request):
@@ -31,17 +32,17 @@ class JobList(LoginRequiredMixin, ListView):
 @login_required
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
-    clearbit.key = settings.API_KEY
-    company = clearbit.Company.find(domain=f'{job.company}.com',stream=True)
+    # clearbit.key = settings.API_KEY
+    # company = clearbit.Company.find(domain=f'{job.company}.com',stream=True)
 
     return render(request, 'main_app/job_detail.html', {
         'job': job,
-        'domain': company['domain'],
-        'sub_industry': company['category']['subIndustry'],
-        'description': company['description'],
-        'linkedin_handle': company['linkedin']['handle'],
-        'twitter_handle': company['twitter']['handle'],
-        'facebook_handle': company['facebook']['handle'],
+        # 'domain': company['domain'],
+        # 'sub_industry': company['category']['subIndustry'],
+        # 'description': company['description'],
+        # 'linkedin_handle': company['linkedin']['handle'],
+        # 'twitter_handle': company['twitter']['handle'],
+        # 'facebook_handle': company['facebook']['handle'],
     })
 
 class JobCreate(LoginRequiredMixin, CreateView):
