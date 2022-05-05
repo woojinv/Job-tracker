@@ -147,7 +147,7 @@ p {
 }
 
 .file-up {
-  max-width: 210px;
+  max-width: 240px;
 }
 
 .feature {
@@ -190,3 +190,15 @@ ul {
   max-width: 100%;
 }
 
+.form-group {
+  margin-bottom: .5rem;
+}
+
+.control-label {
+  margin-bottom: .25rem;
+}
+
+.form-delete {
+  width: 800px;
+  max-width: 80%;
+}
