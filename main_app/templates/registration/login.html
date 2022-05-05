@@ -9,7 +9,27 @@
     <div class="card-body">
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+                {% if field.name == 'username' %}
+                    <fieldset class="form-group">
+                        <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                        <input maxlength="100" type="text" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            value=""
+                            > 
+                    </fieldset>
+                {% elif field.name == 'password' %}
+                    <fieldset class="form-group">
+                        <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                        <input maxlength="100" type="password" class="form-control"
+                            name="{{ field.name }}"
+                            id="id_{{ field.name }}"
+                            value=""
+                            > 
+                    </fieldset>
+                {% endif %}
+            {% endfor %}
             <input type="submit" class="btn job-btn" value="Log In">
             <input type="hidden" name="next" value="{{ next }}">
         </form>
