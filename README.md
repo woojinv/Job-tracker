@@ -17,3 +17,10 @@ Your one stop shop for keeping track of all your job applications.
 5. Upload your resume and cover letter
 
 6. View all applications at a glance
+
+
+## Technologies Used
+
+Frontend: Django Template Language, JavaScript, Bootstrap, HTML and CSS
+
+Backend: Python, Django, PostgreSQL, Heroku, AWS S3, Clearbit API
