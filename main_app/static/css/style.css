@@ -136,7 +136,7 @@ p {
 .form-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .doc-upload {
@@ -184,3 +184,9 @@ ul {
 .paragraph {
   margin-bottom: 0.2rem;
 }
+
+.form-account {
+  width: 450px;
+  max-width: 100%;
+}
+
