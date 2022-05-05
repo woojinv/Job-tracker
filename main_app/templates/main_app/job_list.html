@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<main class="container">
+
 <div class="row">
     <div class="col-8">
         <h1>My Jobs</h1>
@@ -14,30 +16,30 @@
 
 {% for job in job_list %}
     <a href="{% url 'jobs_detail' job.id %}">
-        <div class="card">
+        <div class="card shadow p-3 mb-5 rounded">
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
                             <img class="icon" src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
                     </div>
                     <div class="col-8 index-card">
-                        <h5 class="card-title">{{ job.company }}</h5>
-                        <p class="card-text">{{ job.title }}</p>
+                        <h2 class="card-title">{{ job.company }}</h2>
+                        <h3 class="card-text">{{ job.title }}</h3>
                     </div>
                     <div class="col-2 job-status">
 
                         
                         {% if job.status in "12" %}
-                            <span style="color: blue">
+                            <span style="color: #2F3E60">
                         {% elif job.status in "34" %}
-                            <span style="color: yellow">
+                            <span style="color: #EF8A17">
                         {% elif job.status in "58" %}  
-                            <span style="color: green">
+                            <span style="color: #157F1F">
                         {% elif job.status in "67" %}
-                            <span style="color: red">
-                        {% endif %}
+                            <span style="color: #EF2917">
+                        {% endif %}                    
                             
-                            <h3 class="card-text">{{ job.get_status_display }}</h3>
+                            <h4 class="card-text">{{ job.get_status_display }}</h4>
                         </span>
 
                     </div>

@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<main class="container">
+
 {% if user.id == job.user_id %}
 
     <!-- Job details -->
@@ -15,39 +17,39 @@
     </div>
     <hr />
 
-    <div class="card">
+    <div class="card shadow p-3 mb-5 rounded">
         <div class="card-body">
             <div class="row">
                 <div class="col-2">
                     <img class="icon" src="https://logo.clearbit.com/{{ job.company|cut:' ' }}.com" alt="">
                 </div>      
                 <div class="col-5 detail-left">
-                    <h3 class="card-title">{{ job.company }}</h3>
-                    <h5>{{ job.title }}</h5>
-                    <p>${{ job.salary }}</p>
-                    <p>{{ job.location }}</p>
+                    <h2 class="card-title">{{ job.company }}</h2>
+                    <h3>{{ job.title }}</h3>
+                    <p class="feature">Salary: ${{ job.salary }}</p>
+                    <p class="feature">Location: {{ job.location }}</p>
                 </div>
                 <div class="col-5 detail-right">
                     {% if job.status in "12" %}
-                        <span style="color: blue">
+                        <span style="color: #2F3E60">
                     {% elif job.status in "34" %}
-                        <span style="color: yellow">
+                        <span style="color: #EF8A17">
                     {% elif job.status in "58" %}  
-                        <span style="color: green">
+                        <span style="color: #157F1F">
                     {% elif job.status in "67" %}
-                        <span style="color: red">
+                        <span style="color: #EF2917">
                     {% endif %}                    
                             <h5>{{ job.get_status_display }}</h5>
                         </span>
-                    <p>Applied {{ job.date_applied }}</p>
+                    <p class="feature">Applied {{ job.date_applied }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-2">
                 </div>
                 <div class="col-8">
-                    <h5>Technical Requirements</h5> 
-                    <p> {{ job.tech_reqs }}</p>
+                    <h3 class="bold"><strong>Technical Requirements</strong></h3>
+                    <p class="feature"> {{ job.tech_reqs }}</p>
                 </div>
                 <div class="col-2"></div>
                 
@@ -55,8 +57,8 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <h5>Description</h5> 
-                    <p>{{ job.description }}</p>                    
+                    <h3 class="bold">Description</h3> 
+                    <p class="feature">{{ job.description }}</p>                    
                 </div>
                 <div class="col-2"></div>
 
@@ -64,7 +66,7 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-10">
-                    <p>Source: {{ job.source }}</p>               
+                    <p class="feature">Source: {{ job.source }}</p>               
                 </div>
 
             </div>
@@ -88,7 +90,7 @@
     </div>
     <hr />
 
-    <div class="card">
+    <div class="card shadow p-3 mb-5 rounded">
         <div class="card-body">
             <div class="row">
                 <div class="col-2 link-col">
@@ -111,9 +113,9 @@
                 <div class="col-8">
                     <div class="row">
                         <a href="https://www.{{ domain }}" target="_blank">
-                            <h3 class="card-title">{{ job.company }}</h3>
+                            <h2 class="card-title">{{ job.company }}</h2>
                         </a>
-                        <p class="subhead">{{ sub_industry }}</p>
+                        <p class="subhead">Industry: {{ sub_industry }}</p>
                     </div>
                     <div class="row">
                         <p>{{ description}}</p>
@@ -133,30 +135,32 @@
     </div>
     <hr />
 
-    <div class="card">
-        
-        {% for document in job.document_set.all %}
+    <div class="card shadow p-3 mb-5 rounded">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 doc-upload">
 
-            {% comment %} <iframe id="iframepdf" src="{{ document.url }}"></iframe> {% endcomment %}
-            {% comment %} <embed src="{{ document.url }}" type="application/pdf" width="100%" height="600px" /> {% endcomment %}
+                    {% for document in job.document_set.all %}
+                        <a href="{{ document.url }}"><h3 class="doc-title">{{ document.name }}</h3></a>
+                    {% empty %}
+                        <h3>No Documents Uploaded</h3>
+                    {% endfor %}
 
-            <a href="{{ document.url }}">{{ document.name }}</a>
+                    <br>
 
-        {% empty %}
-
-            <h3>No Documents Uploaded</h3>
-            
-        {% endfor %}
-
-        <form action="{% url 'add_document' job.id %}" enctype="multipart/form-data" method="POST" class="card">
-            {% csrf_token %}
-            <label for="name">Name: </label>
-            <input type="text" name="name">
-            <input type="file" name="document-file">
-            <br><br>
-            <input type="submit" class="btn job-btn" value="Upload Document">
-        </form>
-            
+                    <form action="{% url 'add_document' job.id %}" enctype="multipart/form-data" method="POST" class="upload-form">
+                        {% csrf_token %}
+                        <label for="name">File Name: </label>
+                        <input type="text" name="name" required>
+                        <br><br>
+                        <input type="file" name="document-file" class="file-up" required>
+                        <br><br>
+                        <input type="submit" class="btn job-btn" value="Upload Document">
+                    </form>
+                </div>
+                <div class="col-2"></div>
+            </div>
     </div>
 
 {% else %}

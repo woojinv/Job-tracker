@@ -4,23 +4,29 @@
   box-sizing: border-box;
 } 
 
-
-/* blues */
-/* :root {
-  --clr-light: #CEE5F2;
-  --clr-lmid: #ACCBE1;
-  --clr-mid: #7C98B3;
-  --clr-dark: #637081;
-  --clr-alt: #536B78;  
-} */
-
-/* alt color scheme */
 :root {
-  --clr-light: #E2EAF3;
-  --clr-lmid: #CCAD8F;
-  --clr-mid: #255C99;
-  --clr-dark: #262626;
-  --clr-alt: #BB0A21;  
+  --clr-light: #f8f9fa;
+  --clr-lmid: #dee2e6;
+  --clr-mid: #6c757d;
+  --clr-dark: #212529;
+  --clr-alt: #255C99;
+  --clr-feat: #495057;  
+  --fs-h1: 4rem;
+  --fs-h2: 1.75rem;
+  --fs-h3: 1.5rem;
+  --fs-body: 1.115rem;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
 }
 
 nav {
@@ -32,7 +38,9 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: var(--clr-light);
-}
+    font-family: 'Noto Sans', sans-serif;
+    font-size: var(--fs-body);
+  }
   
 main {
     flex: 1 0 auto;
@@ -50,10 +58,6 @@ a {
 
 a:hover {
   color: var(--clr-mid);
-}
-
-h1 {
-  margin: 10px;
 }
 
 p {
@@ -90,7 +94,11 @@ p {
 
 .job-btn {
   color: var(--clr-light);
-  background-color: var(--clr-mid);
+  background-color: var(--clr-alt);
+}
+
+.doc-title {
+  text-decoration: underline;
 }
 
 .detail-header {
@@ -118,4 +126,61 @@ p {
 
 .index-card {
   margin: auto;
+}
+
+.form-contact {
+  width: 600px;
+  max-width: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doc-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.file-up {
+  max-width: 210px;
+}
+
+.feature {
+  color: var(--clr-feat);
+}
+
+.cover {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.home {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+}
+
+#cover-logo {
+  max-width: 100%;
+}
+
+.home-btn {
+  color: var(--clr-dark);
+  background-color: var(--clr-lmid);
+}
+
+.paragraph {
+  margin-bottom: 0.2rem;
 }

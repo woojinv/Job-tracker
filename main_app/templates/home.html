@@ -1,33 +1,93 @@
-{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Job Depot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" >
+</head>
+<body class="home">
 
 
-<h2>Keeping track of your job applications can be a pain</h2>
-<p>
-    Job Depot is your one-stop shop for managing your job applications.
-</p>
-<ul>
-    <li>
-        Add a job you're interested in
-    </li>
-    <li>
-        Include relevant information
-    </li>
-    <li>
-        Access company details
-    </li>
-    <li>
-        Keep tabs on the application process
-    </li>
-    <li>
-        Upload your resume and cover letter
-    </li>
-    <li>
-        View all applications at a glance
-    </li>
-</ul>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <a class="navbar-brand" href="/">
+        <img src="../static/images/logo-light.png" height="40" class="d-inline-block align-top" alt="">
+      </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'jobs_index' %}">My Jobs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'jobs_create' %}">Add Job</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+              {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+              {% endif %}  
+            </ul>
+        </div>
+    </nav>
+  </header>
 
-<a class="btn job-btn" href="{% url 'signup' %}">Sign Up</a>
-<a class="btn job-btn" href="{% url 'login' %}">Log In</a>
+<main class="cover">
+    <div class="container main-page">
+
+        <img id="cover-logo" src="../static/images/logo-light.png">
+        <br>
+
+        {% comment %} <h2>Keeping track of your job applications can be a pain</h2>
+        <br> {% endcomment %}
+        {% comment %} <p>
+            Job Depot is your one-stop shop for managing your job applications.
+        </p> {% endcomment %}
+        {% comment %} <p class="paragraph"> Add a job you're interested in  &nbsp&nbsp | &nbsp&nbsp Include relevant information &nbsp&nbsp | 
+            &nbsp&nbsp Access company details &nbsp&nbsp | &nbsp&nbsp Keep tabs on the application process &nbsp&nbsp 
+            | &nbsp&nbsp Upload your resume and cover letter &nbsp&nbsp | &nbsp&nbsp View all applications at a glance</p> {% endcomment %}
 
 
-{% endblock %}
+        <p class="paragraph">
+            Add a job you're interested in
+        </p>
+        <p class="paragraph">
+            Include relevant information
+        </p>
+        <p class="paragraph">
+            Access company details
+        </p>
+        <p class="paragraph">
+            Keep tabs on the application process
+        </p>
+        <p class="paragraph">
+            Upload your resume and cover letter
+        </p>
+        <p class="paragraph">
+            View all applications at a glance
+        </p>
+        <br>
+    
+
+        <a class="btn home-btn" href="{% url 'signup' %}">Sign Up</a>
+        <a class="btn home-btn" href="{% url 'login' %}">Log In</a>
+
+    </div>
+
+</main>
+<footer class="page-footer">
+  <div class="right">All Rights Reserved, &copy; 2022 Job Depot App &nbsp;</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
