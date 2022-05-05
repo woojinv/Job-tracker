@@ -24,3 +24,5 @@ Your one stop shop for keeping track of all your job applications.
 Frontend: Django Template Language, JavaScript, Bootstrap, HTML and CSS
 
 Backend: Python, Django, PostgreSQL, Heroku, AWS S3, Clearbit API
+
+Project Planning: Notion, LucidChart, AutoDraw
