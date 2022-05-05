@@ -4,10 +4,6 @@ boto3==1.22.1
 botocore==1.25.1
 certifi==2021.10.8
 charset-normalizer==2.0.12
-<<<<<<< HEAD
-=======
-clearbit==0.1.7
->>>>>>> 6ddb795 (place clearbit back in requirements.txt)
 dj-database-url==0.5.0
 Django==4.0.4
 django-environ==0.8.1
