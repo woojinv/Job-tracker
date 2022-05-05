@@ -11,6 +11,7 @@ import uuid
 import boto3
 import botocore
 import clearbit
+import os
 
 # Add these "constant" variables below the imports
 S3_BASE_URL = settings.S3_BASE_URL
@@ -31,7 +32,8 @@ class JobList(LoginRequiredMixin, ListView):
 @login_required
 def jobs_detail(request, job_id):
     job = Job.objects.get(id=job_id)
-    clearbit.key = settings.API_KEY
+    # clearbit.key = settings.API_KEY
+    clearbit.key = os.environ['API_KEY']
     company = clearbit.Company.find(domain=f'{job.company}.com',stream=True)
 
     return render(request, 'main_app/job_detail.html', {
