@@ -16,7 +16,7 @@ import environ
 environ.Env()
 environ.Env.read_env()
 
-# env = environ.Env()
+env = environ.Env()
 # environ.Env.read_env()
 
 
@@ -127,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT='staticfiles'
 LOGIN_REDIRECT_URL = '/jobs/'
 LOGOUT_REDIRECT_URL = '/'
 
