@@ -10,11 +10,12 @@ from django.conf import settings
 import uuid
 import boto3
 import botocore
+import os
 # import clearbit
 
 # Add these "constant" variables below the imports
-S3_BASE_URL = settings.S3_BASE_URL
-BUCKET = settings.BUCKET_NAME
+S3_BASE_URL = os.environ['S3_BASE_URL']
+BUCKET = os.environ['BUCKET_NAME']
 
 
 def home(request):
