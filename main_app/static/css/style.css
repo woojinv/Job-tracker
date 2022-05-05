@@ -175,3 +175,12 @@ ul {
 #cover-logo {
   max-width: 100%;
 }
+
+.home-btn {
+  color: var(--clr-dark);
+  background-color: var(--clr-lmid);
+}
+
+.paragraph {
+  margin-bottom: 0.2rem;
+}

@@ -44,36 +44,41 @@
     <div class="container main-page">
 
         <img id="cover-logo" src="../static/images/logo-light.png">
-        <br><br>
-
-        <h2>Keeping track of your job applications can be a pain</h2>
         <br>
-        <p>
+
+        {% comment %} <h2>Keeping track of your job applications can be a pain</h2>
+        <br> {% endcomment %}
+        {% comment %} <p>
             Job Depot is your one-stop shop for managing your job applications.
-        </p>
-        <p>
+        </p> {% endcomment %}
+        {% comment %} <p class="paragraph"> Add a job you're interested in  &nbsp&nbsp | &nbsp&nbsp Include relevant information &nbsp&nbsp | 
+            &nbsp&nbsp Access company details &nbsp&nbsp | &nbsp&nbsp Keep tabs on the application process &nbsp&nbsp 
+            | &nbsp&nbsp Upload your resume and cover letter &nbsp&nbsp | &nbsp&nbsp View all applications at a glance</p> {% endcomment %}
+
+
+        <p class="paragraph">
             Add a job you're interested in
         </p>
-        <p>
+        <p class="paragraph">
             Include relevant information
         </p>
-        <p>
+        <p class="paragraph">
             Access company details
         </p>
-        <p>
+        <p class="paragraph">
             Keep tabs on the application process
         </p>
-        <p>
+        <p class="paragraph">
             Upload your resume and cover letter
         </p>
-        <p>
+        <p class="paragraph">
             View all applications at a glance
         </p>
         <br>
     
 
-        <a class="btn job-btn" href="{% url 'signup' %}">Sign Up</a>
-        <a class="btn job-btn" href="{% url 'login' %}">Log In</a>
+        <a class="btn home-btn" href="{% url 'signup' %}">Sign Up</a>
+        <a class="btn home-btn" href="{% url 'login' %}">Log In</a>
 
     </div>
 
