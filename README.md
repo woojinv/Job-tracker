@@ -21,7 +21,10 @@ branch test!
 
 =============== JOB DETAILS ===============
 
-![image](https://user-images.githubusercontent.com/100539234/167039269-8864af1f-f439-43ab-9e56-420a8ebad2a4.png)
+![image](https://user-images.githubusercontent.com/100539234/167040967-15bc959d-062c-417c-8d1b-9cc3a80bd7db.png)
+=====================
+![image](https://user-images.githubusercontent.com/100539234/167040986-70d07bbf-9f05-4168-9edc-3293aed2ec23.png)
+
 
 ===============  ===============
 
