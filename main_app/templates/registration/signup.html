@@ -25,7 +25,7 @@
                 {% elif field.name == 'password1' %}
                     <fieldset class="form-group">
                         <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                        <input maxlength="100" type="text" class="form-control"
+                        <input maxlength="100" type="password" class="form-control"
                             name="{{ field.name }}"
                             id="id_{{ field.name }}"
                             value=""
@@ -38,7 +38,7 @@
                 {% elif field.name == 'password2' %}
                     <fieldset class="form-group">
                         <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                        <input maxlength="100" type="text" class="form-control"
+                        <input maxlength="100" type="password" class="form-control"
                             name="{{ field.name }}"
                             id="id_{{ field.name }}"
                             value=""
