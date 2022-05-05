@@ -184,3 +184,8 @@ ul {
 .paragraph {
   margin-bottom: 0.2rem;
 }
+
+.form-account {
+  width: 450px;
+  max-width: 100%;
+}
