@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jobtracker.wsgi.application'
+WSGI_APPLICATION = 'Job-tracker.wsgi.application'
 
 
 # Database
@@ -134,4 +134,3 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WSGI_APPLICATION = 'Job-tracker.wsgi.application'
