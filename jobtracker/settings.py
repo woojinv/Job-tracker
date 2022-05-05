@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
-API_KEY = env('API_KEY')
-BUCKET_NAME = env('BUCKET_NAME')
-S3_BASE_URL = env('S3_BASE_URL')
+SECRET_KEY = env['SECRET_KEY']
+API_KEY = env['API_KEY']
+BUCKET_NAME = env['BUCKET_NAME']
+S3_BASE_URL = env['S3_BASE_URL']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
