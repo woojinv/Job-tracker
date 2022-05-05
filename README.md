@@ -17,7 +17,7 @@ branch test!
 
 =============== JOB INDEX ===============
 
-![image](https://user-images.githubusercontent.com/100539234/167038999-28cd126f-e690-4407-8c13-bcc6228cdd74.png)
+![image](https://user-images.githubusercontent.com/100539234/167041147-45e4b7ed-3f55-4547-bbe6-997793f6cf05.png)
 
 =============== JOB DETAILS ===============
 
